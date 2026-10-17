@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org",
+  "title": "ReviewSchema",
+  "type": "object",
+  "properties": {
+    "key_points": {
+      "type": "array",
+      "description": "write down all the key pooints mentioned in review",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "summary of the review"
+    },
+    "sentiment": {
+      "type": "string",
+      "description": "sentiment of the review, in one word",
+      "enum": ["positive", "negative", "neutral"]
+    },
+    "pros": {
+      "description": "write all the pros if mentioned in the review",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cons": {
+      "description": "write all the cons if mentioned in the review",
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": ["key_points", "summary", "sentiment"]
+}
